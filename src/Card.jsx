@@ -2,7 +2,9 @@ import React,{useState} from 'react';
 
 
 const Card = ({amount}) =>{
-    const [arr, setArr] = useState(new Array(amount).fill(true)); 
+    const initArr = new Array(amount).fill(true);
+    initArr[0] = false;
+    const [arr, setArr] = useState(initArr); 
     //making an array of size amount and filling it by default true
     
     const countDowns = (arr) => {
@@ -32,10 +34,6 @@ const Card = ({amount}) =>{
             arr.map((item, idx) => {
              return <td style={{border: '1px solid black'}} id={idx} onClick={(e) => onClickHandler(e, idx)}> {item ? 'down' : 'up'} </td>})
         }
-         {/* <td id='1' onClick={onClick}> 'down' </td>
-         <td id='2' onClick={onClick}> 'down' </td>
-         <td id='3' onClick={onClick}> 'down' </td>
-         <td id='4' onClick={onClick}> 'down' </td> */}
      </tr>
     </tbody>
     </table>
